@@ -1,6 +1,7 @@
 import { useState, type CSSProperties, type ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Check, Copy, Hourglass } from "lucide-react";
+import { sticker } from "../lib/assets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -170,7 +171,7 @@ export function Marquee({ items, className = "" }: { items: string[]; className?
         {row.map((t, i) => (
           <span key={i} className="display flex items-center gap-8 text-2xl sm:text-3xl">
             {t}
-            <img src="/assets/stickers/crown-gold.webp" alt="" className="h-7 w-auto" loading="lazy" />
+            <img src={sticker.crownGold} alt="" className="h-7 w-auto" loading="lazy" />
           </span>
         ))}
       </div>

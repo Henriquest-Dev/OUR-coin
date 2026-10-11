@@ -15,10 +15,18 @@ npm run preview   # serve dist/ locally
 
 ## Deploy
 
-`dist/` is a fully static site. Deploy it to any static host:
+### GitHub Pages (already set up)
 
-- **Vercel / Netlify / Cloudflare Pages:** build command `npm run build`, output directory `dist`.
-- Anything else: upload the contents of `dist/`.
+`.github/workflows/deploy.yml` builds the site and publishes `dist/` on every push to `main` (and to the working branch).
+
+One-time setting: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Do **not** use "Deploy from a branch": that serves the un-built source code and the page stays blank blue.
+
+The site is served from `https://<owner>.github.io/<repo>/`. The workflow passes that sub-path to Vite through `BASE_PATH`, so every asset URL is prefixed correctly.
+
+### Other hosts
+
+`dist/` is a fully static site. Vercel, Netlify and Cloudflare Pages all work: build command `npm run build`, output directory `dist`. On a root domain no `BASE_PATH` is needed.
 
 Before going live, replace `https://ourcoin.example` with the real domain in `index.html` (canonical + Open Graph tags) and in `src/config/site.ts`.
 

@@ -11,9 +11,9 @@
     <meta name="theme-color" content="#2d8afc" />
     <!-- replace https://ourcoin.example with the production domain (also in src/config/site.ts) -->
     <link rel="canonical" href="https://ourcoin.example/" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%site.webmanifest" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OUR COIN" />
@@ -29,7 +29,7 @@
     <meta name="twitter:description" content="Memes with personality. Community with purpose." />
     <meta name="twitter:image" content="https://ourcoin.example/og-image.jpg" />
 
-    <link rel="preload" as="image" href="/assets/video/damian-logo-poster.jpg" />
+    <link rel="preload" as="image" href="%BASE_URL%assets/video/damian-logo-poster.jpg" />
     <style>
       /* paint the preloader colour before JS boots, so there is no white flash */
       html, body { background: #2a7fe4; margin: 0; }

@@ -1,8 +1,9 @@
 {
   "name": "OUR COIN",
   "short_name": "OUR COIN",
-  "icons": [{ "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }],
+  "icons": [{ "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }],
   "theme_color": "#2d8afc",
   "background_color": "#2d8afc",
+  "start_url": ".",
   "display": "standalone"
 }
