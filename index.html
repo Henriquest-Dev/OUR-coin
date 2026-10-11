@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>OUR COIN — Born to meme. Built to give.</title>
+    <meta
+      name="description"
+      content="OUR COIN is a community-driven Solana meme coin starring Damian Dupont, with a bigger ambition: turning internet energy into real-world good through disclosed, verifiable giving."
+    />
+    <meta name="theme-color" content="#2d8afc" />
+    <!-- replace https://ourcoin.example with the production domain (also in src/config/site.ts) -->
+    <link rel="canonical" href="https://ourcoin.example/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32.png" />
+    <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
+    <link rel="manifest" href="%BASE_URL%site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OUR COIN" />
+    <meta property="og:title" content="OUR COIN — The king of memes has a heart." />
+    <meta property="og:description" content="Memes with personality. Community with purpose. Meet Damian Dupont and the meme coin that wants to mean something." />
+    <meta property="og:url" content="https://ourcoin.example/" />
+    <meta property="og:image" content="https://ourcoin.example/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Damian Dupont reclining on a pile of gold OUR COIN coins" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OUR COIN — The king of memes has a heart." />
+    <meta name="twitter:description" content="Memes with personality. Community with purpose." />
+    <meta name="twitter:image" content="https://ourcoin.example/og-image.jpg" />
+
+    <style>
+      /* paint the preloader colour before JS boots, so there is no white flash */
+      html, body { background: #2a7fe4; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Static first paint: replaced by React as soon as the app boots -->
+      <div id="boot" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#2a7fe4;font-family:system-ui,sans-serif">
+        <img src="%BASE_URL%assets/video/damian-logo-poster.jpg" alt="" width="360" height="360" style="width:min(84vw,58vh);height:auto" />
+        <p style="margin:0;font:900 clamp(2.4rem,9vw,4.5rem)/1 Impact,'Arial Black',sans-serif;color:#ffc824;-webkit-text-stroke:2px #0f1b3d;letter-spacing:.02em">OUR COIN</p>
+        <div id="boot-msg" style="display:none;max-width:22rem;margin:8px 16px 0;padding:12px 14px;border:3px solid #0f1b3d;border-radius:16px;background:#fbf1dc;color:#0f1b3d;font-size:14px;line-height:1.4;text-align:center"></div>
+      </div>
+    </div>
+    <script>
+      // Boot watchdog: if the app fails to start (old browser, blocked script, network),
+      // show what happened and a reload button instead of an empty blue page.
+      (function () {
+        var errs = [];
+        window.addEventListener("error", function (e) { errs.push(e.message || (e.target && (e.target.src || e.target.href)) || "error"); }, true);
+        window.addEventListener("unhandledrejection", function (e) { errs.push(String(e.reason)); });
+        setTimeout(function () {
+          if (document.documentElement.getAttribute("data-app") === "ready") return;
+          var m = document.getElementById("boot-msg");
+          if (!m) return;
+          m.style.display = "block";
+          m.innerHTML =
+            "<strong>The site is taking too long to start.</strong><br>Check your connection, or update your browser." +
+            (errs.length ? "<br><small style='opacity:.7;word-break:break-word'>" + errs.slice(0, 3).join("<br>").replace(/</g, "&lt;") + "</small>" : "") +
+            "<br><button onclick='location.reload()' style='margin-top:10px;padding:10px 18px;border:3px solid #0f1b3d;border-radius:999px;background:#ffc824;font-weight:800;font-size:15px'>Reload</button>";
+        }, 12000);
+      })();
+    </script>
+    <noscript>
+      <p style="font-family: system-ui; color: #fff; padding: 2rem">OUR COIN needs JavaScript enabled to show its full experience.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
