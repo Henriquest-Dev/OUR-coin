@@ -106,17 +106,6 @@ export function Hero({ ready }: { ready: boolean }) {
               className="mx-auto -mt-6 block aspect-square w-full max-w-[34rem] object-cover md:mt-[-4vw] md:aspect-[2056/765] md:max-w-none"
             />
           </motion.picture>
-          {/* scroll cue */}
-          <a
-            href="#damian"
-            className="group absolute bottom-8 left-6 hidden flex-col lg:left-10 items-center gap-1 rounded-full border-[3px] border-ink bg-cream px-4 py-2 shadow-[0_4px_0_0_var(--color-ink)] sm:flex"
-            aria-label="Scroll to meet Damian"
-          >
-            <span className="font-display text-xs font-extrabold tracking-widest text-ink uppercase">Scroll</span>
-            <span className="flex h-6 w-4 justify-center rounded-full border-2 border-ink">
-              <span className="mt-1 h-1.5 w-1 animate-bounce rounded-full bg-ink" />
-            </span>
-          </a>
         </motion.div>
       </section>
 

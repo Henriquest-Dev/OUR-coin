@@ -61,19 +61,28 @@ src/
   index.css            design tokens (colours sampled from the artwork), type, textures
 ```
 
-To rebuild the artwork (needs Python 3 with Pillow, numpy and scipy, plus ffmpeg):
+To rebuild the artwork (needs Python 3 with Pillow, numpy, scipy and PyTorch (CPU), plus ffmpeg):
 
 ```bash
-python3 scripts/build_assets.py
+# 1. 4x upscale of the asset grid (Real-ESRGAN x4plus anime 6B, CPU, ~4 min)
+curl -LO https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.2.4/RealESRGAN_x4plus_anime_6B.pth
+python3 scripts/upscale_esrgan.py RealESRGAN_x4plus_anime_6B.pth <grid-with-separator-removed.png> /tmp/grid_x4.png
+# 2. transfer the original paper grain back, then cut every piece (cached in art/derived/)
+python3 scripts/build_assets.py --grain /tmp/grid_x4.png
+# 3. preloader clip
 ./scripts/build_video.sh
 ```
+
+Cut-outs are keyed in 4x space: the background colour is sampled from each crop's border, only blue regions
+connected to the border (or enclosed gaps) are removed, so blue *inside* an object (globe oceans, reflections)
+is kept. Edges are soft-matted, de-spilled and exported at 2x the sheet resolution.
 
 ## Design notes
 
 - **Palette** is sampled from the illustrations: royal blue `#2d8afc`, crown gold, trouser flame orange, fur-coat cream, vest navy (used as the ink colour), hair green.
 - **House shape:** chunky ink outlines with hard offset shadows, like stickers. Buttons squish down when pressed (taken from the tactile "Copy" button in the style reference). The giving flow uses outlined chevrons. Cream sections carry a faint pattern of Damian's coat spots.
 - **Type:** Bricolage Grotesque (condensed and heavy for display, normal for body) plus Permanent Marker for hand-written notes. Both are self-hosted.
-- **Motion:** preloader curtain, staggered hero entrance, parallax on the illustrations, word-by-word headline reveals, floating stickers, spring hover/tap on cards, marquee. `prefers-reduced-motion` is respected throughout. The preloader then shows a still frame for under a second.
+- **Motion:** mandatory animated-logo intro (no skip; falls back automatically if the video can’t play), preloader curtain, staggered hero entrance, parallax on the illustrations, word-by-word headline reveals, floating stickers, spring hover/tap on cards, marquee. `prefers-reduced-motion` is respected throughout. The preloader then shows a still frame for under a second.
 - **Accessibility:** skip link, keyboard-operable menu (Esc closes it, focus stays inside), accessible accordion, visible focus rings, alt text on every meaningful image, decorative images hidden from screen readers.
 - **Safety:** no wallet connection, no form fields, no request for keys or seed phrases anywhere.
 
@@ -90,7 +99,7 @@ python3 scripts/build_assets.py
 - [ ] Legal review of the risk notice and disclosures for your target jurisdictions
 
 **Artwork (optional upgrades)**
-- [ ] Higher-resolution, transparent versions of the poses from the grid. The cut-outs come from a 1536×1024 sheet, so each pose is about 250 px tall. They look fine at their current sizes but would go soft if shown larger.
+- [ ] Native high-resolution, transparent versions of the poses. The cut-outs are AI-upscaled from a 1536×1024 sheet (about 400–600 px tall now); original masters would be sharper still.
 - [ ] Full-body versions of the half-body poses (heart, pointing, shrug, thinking, laughing, coffee), so they can stand freely instead of sitting in frames.
 - [ ] A dedicated "Damian waving / welcoming" pose for the community section, and a "Damian handing over a gift" pose for charity. Prompt idea: *"Damian Dupont — same flat 2D textured style, gold five-point crown, sculptural green hair, black sunglasses, nose ring, cream fur coat with black spots, navy vest, orange flared trousers — warmly handing a gift box tied with a gold ribbon to the viewer, plain electric-blue #2D8AFC background, full body, centred"*.
 - [ ] A vector (SVG) wordmark / logo.

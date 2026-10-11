@@ -110,7 +110,10 @@ export function Impact() {
               </div>
             ) : (
               <div className="grid items-center gap-6 px-6 py-8 sm:grid-cols-[auto_1fr] sm:px-8">
-                <img src={damian.thinking} alt="Damian Dupont thinking" loading="lazy" className="mx-auto h-40 w-auto" />
+                <div className="chunk relative mx-auto w-44 overflow-hidden border-cream/20 bg-royal pt-4 shadow-none">
+                  <div className="rays absolute inset-0" aria-hidden />
+                  <img src={damian.thinking} alt="Damian Dupont thinking" loading="lazy" className="relative mx-auto w-full" />
+                </div>
                 <div>
                   <p className="display text-3xl text-gold">Nothing here yet. On purpose.</p>
                   <p className="mt-2 max-w-xl leading-relaxed text-cream/75">

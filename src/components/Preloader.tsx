@@ -11,7 +11,7 @@ const MAX_MS = 8000;
 type Props = { onDone: () => void };
 
 /**
- * Plays the animated Damian logo once, then lifts away like a curtain.
+ * Plays the animated Damian logo once (mandatory, not skippable), then lifts away like a curtain.
  * Exits when the clip has finished AND the page has loaded (or after MAX_MS).
  * Reduced-motion users see the final frame briefly instead of the clip.
  */
@@ -150,13 +150,6 @@ export function Preloader({ onDone }: Props) {
             <span className="sr-only">{Math.round(progress * 100)}% loaded</span>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setVisible(false)}
-            className="absolute right-4 bottom-4 rounded-full border-2 border-cream/70 px-4 py-2 font-display text-sm font-bold tracking-wide text-cream uppercase transition hover:bg-cream hover:text-ink sm:right-6 sm:bottom-6"
-          >
-            Skip intro
-          </button>
         </motion.div>
       )}
     </AnimatePresence>
