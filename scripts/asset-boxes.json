@@ -1,0 +1,401 @@
+{
+ "characters": {
+  "damian-standing": {
+   "box": [
+    2,
+    2,
+    219,
+    317
+   ],
+   "keep": "largest"
+  },
+  "damian-portrait": {
+   "box": [
+    223,
+    2,
+    473,
+    317
+   ],
+   "keep": "largest"
+  },
+  "damian-throne": {
+   "box": [
+    477,
+    2,
+    743,
+    317
+   ],
+   "keep": "largest"
+  },
+  "damian-reclining": {
+   "box": [
+    747,
+    2,
+    1069,
+    317
+   ]
+  },
+  "damian-pointing": {
+   "box": [
+    1072,
+    2,
+    1297,
+    317
+   ],
+   "keep": "largest"
+  },
+  "damian-coin": {
+   "box": [
+    1300,
+    2,
+    1535,
+    317
+   ],
+   "keep": "largest"
+  },
+  "damian-celebrating": {
+   "box": [
+    2,
+    322,
+    243,
+    526
+   ]
+  },
+  "damian-coffee": {
+   "box": [
+    246,
+    322,
+    503,
+    526
+   ],
+   "keep": "largest"
+  },
+  "damian-heart": {
+   "box": [
+    506,
+    322,
+    738,
+    526
+   ],
+   "keep": "largest"
+  },
+  "damian-shrug": {
+   "box": [
+    741,
+    322,
+    1042,
+    526
+   ],
+   "keep": "largest"
+  },
+  "damian-thinking": {
+   "box": [
+    1045,
+    322,
+    1297,
+    526
+   ],
+   "keep": "largest"
+  },
+  "damian-laughing": {
+   "box": [
+    1300,
+    322,
+    1535,
+    526
+   ]
+  }
+ },
+ "stickers": {
+  "coin-front": {
+   "box": [
+    3,
+    533,
+    158,
+    664
+   ],
+   "keep": "largest"
+  },
+  "coin-tilt": {
+   "box": [
+    168,
+    540,
+    318,
+    660
+   ],
+   "keep": "largest"
+  },
+  "coin-tilt-2": {
+   "box": [
+    325,
+    540,
+    470,
+    660
+   ],
+   "keep": "largest"
+  },
+  "coin-stack": {
+   "box": [
+    482,
+    535,
+    830,
+    664
+   ]
+  },
+  "crown-gold": {
+   "box": [
+    842,
+    548,
+    970,
+    650
+   ],
+   "keep": "largest"
+  },
+  "crown-tilt": {
+   "box": [
+    980,
+    555,
+    1092,
+    640
+   ],
+   "keep": "largest"
+  },
+  "crown-sketch": {
+   "box": [
+    1100,
+    548,
+    1210,
+    655
+   ]
+  },
+  "crown-jewel": {
+   "box": [
+    1222,
+    548,
+    1370,
+    650
+   ],
+   "keep": "largest"
+  },
+  "crown-sketch-2": {
+   "box": [
+    1385,
+    545,
+    1530,
+    655
+   ]
+  },
+  "sticker-our-coin": {
+   "box": [
+    842,
+    672,
+    915,
+    765
+   ]
+  },
+  "sticker-better-world": {
+   "box": [
+    925,
+    672,
+    1030,
+    765
+   ]
+  },
+  "sticker-good-memes": {
+   "box": [
+    1046,
+    672,
+    1125,
+    765
+   ]
+  },
+  "icon-heart": {
+   "box": [
+    1128,
+    680,
+    1182,
+    742
+   ],
+   "keep": "largest"
+  },
+  "icon-globe": {
+   "box": [
+    1183,
+    678,
+    1246,
+    744
+   ],
+   "keep": "largest",
+   "fill": true
+  },
+  "icon-handshake": {
+   "box": [
+    1248,
+    680,
+    1330,
+    738
+   ],
+   "keep": "largest"
+  },
+  "icon-globe-heart": {
+   "box": [
+    1330,
+    678,
+    1399,
+    744
+   ],
+   "keep": "largest",
+   "fill": true
+  },
+  "icon-megaphone": {
+   "box": [
+    1398,
+    676,
+    1478,
+    748
+   ],
+   "keep": "largest"
+  },
+  "coins-scatter": {
+   "box": [
+    2,
+    775,
+    370,
+    893
+   ]
+  },
+  "sparkle": {
+   "box": [
+    165,
+    778,
+    222,
+    838
+   ],
+   "keep": "largest"
+  },
+  "arrow-curve": {
+   "box": [
+    380,
+    776,
+    463,
+    836
+   ],
+   "keep": "largest"
+  },
+  "arrow-straight": {
+   "box": [
+    445,
+    800,
+    522,
+    836
+   ],
+   "keep": "largest"
+  },
+  "arrow-loop": {
+   "box": [
+    380,
+    836,
+    475,
+    890
+   ],
+   "keep": "largest"
+  },
+  "crown-doodle": {
+   "box": [
+    505,
+    818,
+    562,
+    868
+   ]
+  },
+  "star-doodle": {
+   "box": [
+    608,
+    773,
+    662,
+    817
+   ]
+  },
+  "burst-doodle": {
+   "box": [
+    583,
+    830,
+    667,
+    892
+   ],
+   "keep": "largest"
+  },
+  "bolt": {
+   "box": [
+    808,
+    776,
+    848,
+    862
+   ],
+   "keep": "largest"
+  },
+  "sunglasses": {
+   "box": [
+    850,
+    812,
+    920,
+    862
+   ],
+   "keep": "largest"
+  },
+  "mug": {
+   "box": [
+    928,
+    800,
+    998,
+    866
+   ],
+   "keep": "largest"
+  },
+  "money-bag": {
+   "box": [
+    990,
+    778,
+    1086,
+    893
+   ],
+   "keep": "largest"
+  },
+  "throne": {
+   "box": [
+    1105,
+    748,
+    1226,
+    895
+   ],
+   "keep": "largest"
+  },
+  "sparkle-small": {
+   "box": [
+    580,
+    805,
+    606,
+    838
+   ],
+   "keep": "largest"
+  },
+  "coin-small": {
+   "box": [
+    677,
+    836,
+    718,
+    890
+   ],
+   "keep": "largest"
+  },
+  "squiggle": {
+   "box": [
+    676,
+    778,
+    770,
+    830
+   ],
+   "keep": "largest"
+  }
+ }
+}
