@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MotionConfig } from "motion/react";
 import { Preloader } from "./components/Preloader";
 import { Nav } from "./components/Nav";
@@ -15,6 +15,8 @@ import { Footer } from "./sections/Footer";
 
 export default function App() {
   const [ready, setReady] = useState(false);
+  // tells the boot watchdog in index.html that the app is alive
+  useEffect(() => document.documentElement.setAttribute("data-app", "ready"), []);
   return (
     <MotionConfig reducedMotion="user">
       {!ready && <Preloader onDone={() => setReady(true)} />}

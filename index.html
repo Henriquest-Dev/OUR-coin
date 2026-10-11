@@ -29,14 +29,39 @@
     <meta name="twitter:description" content="Memes with personality. Community with purpose." />
     <meta name="twitter:image" content="https://ourcoin.example/og-image.jpg" />
 
-    <link rel="preload" as="image" href="%BASE_URL%assets/video/damian-logo-poster.jpg" />
     <style>
       /* paint the preloader colour before JS boots, so there is no white flash */
       html, body { background: #2a7fe4; margin: 0; }
     </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static first paint: replaced by React as soon as the app boots -->
+      <div id="boot" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#2a7fe4;font-family:system-ui,sans-serif">
+        <img src="%BASE_URL%assets/video/damian-logo-poster.jpg" alt="" width="360" height="360" style="width:min(84vw,58vh);height:auto" />
+        <p style="margin:0;font:900 clamp(2.4rem,9vw,4.5rem)/1 Impact,'Arial Black',sans-serif;color:#ffc824;-webkit-text-stroke:2px #0f1b3d;letter-spacing:.02em">OUR COIN</p>
+        <div id="boot-msg" style="display:none;max-width:22rem;margin:8px 16px 0;padding:12px 14px;border:3px solid #0f1b3d;border-radius:16px;background:#fbf1dc;color:#0f1b3d;font-size:14px;line-height:1.4;text-align:center"></div>
+      </div>
+    </div>
+    <script>
+      // Boot watchdog: if the app fails to start (old browser, blocked script, network),
+      // show what happened and a reload button instead of an empty blue page.
+      (function () {
+        var errs = [];
+        window.addEventListener("error", function (e) { errs.push(e.message || (e.target && (e.target.src || e.target.href)) || "error"); }, true);
+        window.addEventListener("unhandledrejection", function (e) { errs.push(String(e.reason)); });
+        setTimeout(function () {
+          if (document.documentElement.getAttribute("data-app") === "ready") return;
+          var m = document.getElementById("boot-msg");
+          if (!m) return;
+          m.style.display = "block";
+          m.innerHTML =
+            "<strong>The site is taking too long to start.</strong><br>Check your connection, or update your browser." +
+            (errs.length ? "<br><small style='opacity:.7;word-break:break-word'>" + errs.slice(0, 3).join("<br>").replace(/</g, "&lt;") + "</small>" : "") +
+            "<br><button onclick='location.reload()' style='margin-top:10px;padding:10px 18px;border:3px solid #0f1b3d;border-radius:999px;background:#ffc824;font-weight:800;font-size:15px'>Reload</button>";
+        }, 12000);
+      })();
+    </script>
     <noscript>
       <p style="font-family: system-ui; color: #fff; padding: 2rem">OUR COIN needs JavaScript enabled to show its full experience.</p>
     </noscript>
